@@ -1,0 +1,45 @@
+﻿{% extends "layout.html" %}
+
+{% block js %}{% endblock %}
+
+{% block title %}
+    T4SG Project | Vaccine Tracker
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="header-div">
+            <div class="title-div">
+                <h1> My Vaccine Updates </h1>
+            </div>
+            <div class="search-div">
+                <form action="/" class="form-inline">
+                    <input autocomplete="off" autofocus class="search-bar" name="search" placeholder="Find Shipments by Type, Location, ..." type="text">
+                    <button type="submit" class="form-btn"> Search </button>
+                </form>
+            </div>
+        </div>
+        <div class="gallery">
+
+            {% for item in list%}
+            <div class="vaccine-box">
+                <h6> Shipment #{{item[0]}}</h6>
+                <div class="vaccine-info">
+                    <div class="main-info">
+                        <h3> Type: {{item[4]}} Vaccine</h3>
+                        <h4> Quantity: {{item[1]}}</h4>
+                    </div>
+                    <div class="side-info">
+                        <h6> To: {{item[3]}}</h6>
+                        <h6> From: {{item[2]}}</h6>
+                        <h6> Posted By: {{user}}</h6>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
